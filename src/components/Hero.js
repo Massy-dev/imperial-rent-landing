@@ -25,7 +25,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="text-4xl md:text-4xl font-bold mb-4">
           Bienvenue chez <span className="text-[#ffa500]">IMPERIAL RENT</span>
         </h1>
         <p className="text-lg md:text-xl mb-8">
