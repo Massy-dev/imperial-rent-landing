@@ -7,7 +7,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import Contacts from './components/Contacts';
-import Footer from './components/Footer.js';
+import Footer from './components/Footer';
 import FAQ from './components/FAQ.js';
 import { pageView } from './analytics';
 import Pricing from './components/Pricing';
@@ -34,6 +34,7 @@ function App() {
       <Services/>
       <Testimonials/>
       <Contacts/>
+      <Footer/>
     </div>
   );
 }

@@ -1,38 +1,90 @@
 // src/components/Navbar.jsx
-
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-scroll"; // Import react-scroll Link
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [bgColor, setBgColor] = useState("transparent");
 
-  // Gérer le scroll pour changer la couleur de fond
+  // Changer la couleur du background au scroll
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setBgColor("#000000");
+    } else {
+      setBgColor("transparent");
+    }
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      setScrolled(offset > 50);
-    };
-
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#1b1b1b] shadow-md" : "bg-transparent"
+        bgColor === "#000000" ? "bg-[#1b1b1b] shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
         {/* Logo */}
-        <div className="text-[#ffa500] font-bold text-xl">IMPERIAL RENT</div>
+        <div className="text-[#ffa500] font-bold text-2xl">IMPERIAL RENT</div>
 
-        {/* Navigation Links */}
-        <ul className="flex space-x-6 text-white">
-          <li><a href="#hero" className="hover:text-[#ffa500]">Accueil</a></li>
-          <li><a href="#about" className="hover:text-[#ffa500]">À propos</a></li>
-          <li><a href="#services" className="hover:text-[#ffa500]">Services</a></li>
-          <li><a href="#contact" className="hover:text-[#ffa500]">Contact</a></li>
+        {/* Menu */}
+        <ul className={`flex gap-8 ${isMobile ? "flex-col" : "hidden md:flex"}`}>
+        <li>
+            <Link
+              to="home"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer text-white hover:text-[#ffa500]"
+            >
+              Accueil
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer text-white hover:text-[#ffa500]"
+            >
+              À propos
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="services"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer text-white hover:text-[#ffa500]"
+            >
+              Nos Services
+            </Link>
+          </li>
+          
+          <li>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer text-white hover:text-[#ffa500]"
+            >
+              Réserver
+            </Link>
+          </li>
         </ul>
+
+        {/* Mobile Menu Toggle */}
+        <div
+          className="md:hidden text-white"
+          onClick={() => setIsMobile(!isMobile)}
+        >
+          {isMobile ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
     </nav>
   );
