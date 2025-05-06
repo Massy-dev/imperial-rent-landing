@@ -2,15 +2,17 @@ import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import Header from './components/Header.js';
-import Hero from './components/Hero.js';
-import Services from './components/Services.js';
-import About from './components/About.js';
-import Contact from './components/Contacts.js';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import About from './components/About';
+import Contacts from './components/Contacts';
 import Footer from './components/Footer.js';
 import FAQ from './components/FAQ.js';
 import { pageView } from './analytics';
-
+import Pricing from './components/Pricing';
+import FooterBannerParallax from './components/FooterBannerParalax.js';
+import Testimonials from './components/Testimonials';
 
  
 
@@ -26,13 +28,12 @@ function App() {
     
     <div className="App">
      
-      <Header/> 
+      <Header/>
       <Hero/>
-      <About />
+      <About/>
       <Services/>
-      <Contact />
-      <Footer />
-      <FAQ />
+      <Testimonials/>
+      <Contacts/>
     </div>
   );
 }
