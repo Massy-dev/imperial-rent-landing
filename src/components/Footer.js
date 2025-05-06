@@ -17,7 +17,7 @@ const Footer = () => {
 
         {/* Logo */}
         <div>
-          <img src="/path-to-your-logo.png" alt="IMPERIAL RENT Logo" className="h-16 mb-4 mx-auto md:mx-0" />
+          <img src="/images/imperial.png" alt="IMPERIAL RENT Logo" className="h-16 mb-4 mx-auto md:mx-0" />
           <p className="text-gray-400">Agence de location de voitures premium.</p>
         </div>
 

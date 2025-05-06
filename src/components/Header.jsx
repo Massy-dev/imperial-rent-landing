@@ -31,7 +31,12 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
         {/* Logo */}
-        <div className="text-[#ffa500] font-bold text-2xl">IMPERIAL RENT</div>
+        <div className="flex items-center">
+          <img src="/images/rent.png" alt="IMPERIAL RENT Logo" className="h-20 mb-2 mx-auto md:mx-0" />
+          <div className="text-[#ffa500] font-semibold text-1xl">IMPERIAL RENT</div>
+         
+        </div>
+        
 
         {/* Menu */}
         <ul className={`flex gap-8 ${isMobile ? "flex-col" : "hidden md:flex"}`}>
